@@ -1,4 +1,5 @@
 <?php
+include('db.php');
 include('includes/template.php');
 
 ?>
@@ -29,7 +30,7 @@ include('includes/template.php');
                 </thead>
                 <tbody>
                   <?php 
-                    include('db.php');
+                    
                     $query = "SELECT * FROM patients ORDER BY created_at DESC";
                     $result = mysqli_query($connection, $query);
                     if(mysqli_num_rows($result) > 0)
