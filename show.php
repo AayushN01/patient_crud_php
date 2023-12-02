@@ -10,8 +10,10 @@
     if($result)
     {
         $patient = mysqli_fetch_assoc($result);
-        if(isset($patient['middle_name'])){
+        if(isset($patient['middle_name']) && $patient['middle_name'] !== ''){
             $short_middle = strtoupper(substr($patient['middle_name'], 0, 1)) . '.';
+        }else{
+            $short_middle = '';
         }
        
     }

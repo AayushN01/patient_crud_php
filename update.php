@@ -1,7 +1,7 @@
 <?php 
     include('db.php');
-
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $patientId = $_REQUEST['id'];
         $first_name = $_REQUEST['first_name'];
         $middle_name = $_REQUEST['middle_name'] ?? null;
         $last_name = $_REQUEST['last_name'];
@@ -14,16 +14,16 @@
         $email = $_REQUEST['email'];
         $occupation = $_REQUEST['occupation'] ?? null;
         $medical_history = $_REQUEST['medical_history'] ?? null;
-        $created_at = date("Y-m-d H:i:s");
         $updated_at = date("Y-m-d H:i:s");
 
+
             try{
-                $query = "INSERT INTO patients(first_name, middle_name, last_name, dob, gender, nationality, address,contact_no,contact_alternate,email,occupation,medical_history,created_at,updated_at) VALUES ('$first_name','$middle_name','$last_name','$dob','$gender','$nationality','$address','$contact_no','$contact_alternate','$email','$occupation','$medical_history','$created_at','$updated_at')";  
+                $query = "UPDATE patients SET first_name='$first_name',middle_name='$middle_name',last_name='$last_name',dob='$dob',gender='$gender',nationality='$nationality',address='$address',contact_no='$contact_no',contact_alternate='$contact_alternate',email='$email',occupation='$occupation',medical_history='$medical_history',updated_at='$updated_at' WHERE id=$patientId";
                 $result = mysqli_query($connection, $query); 
     
                 if($result)
                 {   
-                    $_SESSION['success'] = "Patient added successfully!";
+                    $_SESSION['success'] = "Patient updated successfully!";
                     header('Location: index.php');
                     exit();
                 }

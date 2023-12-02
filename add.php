@@ -19,7 +19,7 @@ include('includes/template.php');
                                 <input type="text" class="form-control" id="validationCustom01" name="first_name" required>
                             </div>
                             <div class="col-md-4">
-                                <label for="validationCustom01" class="form-label">Middle Nname</label>
+                                <label for="validationCustom01" class="form-label">Middle Name</label>
                                 <input type="text" class="form-control" id="validationCustom01" name="middle_name">
                             </div>
                             <div class="col-md-4">
