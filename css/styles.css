@@ -1,0 +1,10 @@
+.searchForm form .row{
+    justify-content: center !important;
+}
+.searchForm .form-group{
+    display: flex !important;
+}
+
+.searchForm .form-group button{
+    width: 50px !important;
+}

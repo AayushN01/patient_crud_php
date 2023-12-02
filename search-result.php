@@ -3,12 +3,11 @@ include('db.php');
 include('includes/template.php');
 
 ?>
-
 <section class="p-5">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h3>Patient Records</h3>
+        <h3>Search Results</h3>
         <a href="add.php" class="ms-auto btn btn-secondary p-2 my-2" style="float: right;">Add New</a>
       </div>
 
@@ -57,7 +56,7 @@ include('includes/template.php');
             <table class="table table-bordered table-hover">
               <thead>
                 <tr>
-                  <th width="5%">SNo.</th>
+                <th width="5%">SNo.</th>
                   <th width="25%">Name</th>
                   <th width="20%">Email</th>
                   <th width="5%">Gender</th>
@@ -68,12 +67,18 @@ include('includes/template.php');
               </thead>
               <tbody>
                 <?php
+                $patientName = $_GET['name'];
 
-                $query = "SELECT * FROM patients ORDER BY created_at DESC";
+                
+                $query = "SELECT * FROM patients 
+                        WHERE first_name LIKE '%$patientName%' 
+                        OR last_name LIKE '%$patientName%' 
+                        OR middle_name LIKE '%$patientName%'
+                        ORDER BY created_at DESC";
                 $result = mysqli_query($connection, $query);
                 if (mysqli_num_rows($result) > 0) {
                   $patients = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
+                
                   foreach ($patients as $key => $patient) { ?>
                     <tr>
                       <th><?php echo ++$key; ?></th>

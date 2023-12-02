@@ -12,6 +12,8 @@
         $patient = mysqli_fetch_assoc($result);
         if(isset($patient['middle_name']) && $patient['middle_name'] !== ''){
             $short_middle = strtoupper(substr($patient['middle_name'], 0, 1)) . '.';
+        }else{
+           $short_middle = ''; 
         }
        
     }
@@ -21,7 +23,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h3>Edit Patient: <span class="text text-danger"><?php echo $patient['first_name'] . ' ' .$short_middle . ' ' .$patient['last_name']; ?></span></h3>
+                <h3>Edit Patient: <span class="text text-danger"><?php echo $patient['first_name'] . ' ' .@$short_middle . ' ' .$patient['last_name']; ?></span></h3>
                 <a href="index.php" class="ms-auto btn btn-secondary p-2 my-2" style="float: right;">Go Back</a>
             </div>
         </div>
@@ -87,7 +89,10 @@
                                 <label for="validationCustom01" class="form-label">Occupation</label>
                                 <input type="text" class="form-control" id="validationCustom01" name="occupation" value="<?php echo $patient['occupation'] ?? '' ?>">
                             </div>
-
+                            <div class="col-md-4">
+                                <label for="validationCustom01" class="form-label">Appontment Date/Time <span class="text text-danger">*</span></label>
+                                <input type="datetime-local" class="form-control" id="validationCustom01" name="appointment_datetime" value="<?php echo $patient['appointment_datetime'] ?? '' ?>">
+                            </div>
                             <div class="col-md-12">
                                 <label for="validationCustom01" class="form-label">Medical History</label>
                                 <textarea name="medical_history" id="validationCustom01" class="form-control"><?php echo $patient['medical_history'] ?? '' ?></textarea>

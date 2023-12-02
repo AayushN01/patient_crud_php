@@ -63,6 +63,10 @@
                         <td colspan="3"><?php echo $patient['occupation']; ?></td>
                     </tr>
                     <tr>
+                        <th>Appointment Date/Time</th>
+                        <td colspan="3"><?php echo $patient['appointment_datetime']; ?></td>
+                    </tr>
+                    <tr>
                         <th>Medical History</th>
                         <td colspan="3"><?php echo $patient['medical_history']; ?></td>
                     </tr>

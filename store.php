@@ -14,11 +14,12 @@
         $email = $_REQUEST['email'];
         $occupation = $_REQUEST['occupation'] ?? null;
         $medical_history = $_REQUEST['medical_history'] ?? null;
+        $appointment = $_REQUEST['appointment_datetime'];
         $created_at = date("Y-m-d H:i:s");
         $updated_at = date("Y-m-d H:i:s");
 
             try{
-                $query = "INSERT INTO patients(first_name, middle_name, last_name, dob, gender, nationality, address,contact_no,contact_alternate,email,occupation,medical_history,created_at,updated_at) VALUES ('$first_name','$middle_name','$last_name','$dob','$gender','$nationality','$address','$contact_no','$contact_alternate','$email','$occupation','$medical_history','$created_at','$updated_at')";  
+                $query = "INSERT INTO patients(first_name, middle_name, last_name, dob, gender, nationality, address,contact_no,contact_alternate,email,occupation,medical_history,created_at,updated_at,appointment_datetime) VALUES ('$first_name','$middle_name','$last_name','$dob','$gender','$nationality','$address','$contact_no','$contact_alternate','$email','$occupation','$medical_history','$created_at','$updated_at','$appointment')";  
                 $result = mysqli_query($connection, $query); 
     
                 if($result)

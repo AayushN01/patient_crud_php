@@ -71,10 +71,15 @@ include('includes/template.php');
                                 <label for="validationCustom01" class="form-label">Occupation</label>
                                 <input type="text" class="form-control" id="validationCustom01" name="occupation">
                             </div>
+                            <div class="col-md-4">
+                                <label for="validationCustom01" class="form-label">Appontment Date/Time <span class="text text-danger">*</span></label>
+                                <input type="datetime-local" class="form-control" id="validationCustom01" name="appointment_datetime" required>
+                            </div>
                             <div class="col-md-12">
                                 <label for="validationCustom01" class="form-label">Medical History</label>
                                 <textarea name="medical_history" id="validationCustom01" class="form-control"></textarea>
                             </div>
+
                             <div class="col-12">
                                 <button class="btn btn-primary" type="submit">Add Record</button>
                             </div>
