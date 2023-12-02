@@ -13,7 +13,7 @@ include('includes/template.php');
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <form class="row g-3">
+                        <form class="row g-3" action="store.php" method="POST">
                             <div class="col-md-4">
                                 <label for="validationCustom01" class="form-label">First Name <span class="text text-danger">*</span></label>
                                 <input type="text" class="form-control" id="validationCustom01" name="first_name" required>
@@ -28,7 +28,7 @@ include('includes/template.php');
                             </div>
                             <div class="col-md-4">
                                 <label for="validationCustom01" class="form-label">Date Of Birth<span class="text text-danger">*</span></label>
-                                <input type="text" class="form-control" id="validationCustom01" name="dob">
+                                <input type="date" class="form-control" id="validationCustom01" name="dob">
                             </div>
                             <div class="col-md-4">
                                 <div class="row">
@@ -70,10 +70,6 @@ include('includes/template.php');
                             <div class="col-md-4">
                                 <label for="validationCustom01" class="form-label">Occupation</label>
                                 <input type="text" class="form-control" id="validationCustom01" name="occupation">
-                            </div>
-                            <div class="col-md-4">
-                                <label for="validationCustom01" class="form-label">Address</label>
-                                <input type="text" class="form-control" id="validationCustom01" name="address">
                             </div>
                             <div class="col-md-12">
                                 <label for="validationCustom01" class="form-label">Medical History</label>
