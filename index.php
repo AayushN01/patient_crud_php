@@ -14,7 +14,18 @@ include('includes/template.php');
 
     </div>
   </div>
-
+<?php 
+  session_start();
+  if (isset($_GET['success']) && $_GET['success'] == 1) {
+    echo '<div class="alert alert-success" role="alert">Record added successfully!</div>';
+  }
+  if (isset($_GET['update_success']) && $_GET['update_success'] == 1) {
+    echo '<div class="alert alert-success" role="alert">Record updated successfully!</div>';
+  }
+  if (isset($_GET['delete_success']) && $_GET['delete_success'] == 1) {
+    echo '<div class="alert alert-success" role="alert">Record deleted successfully!</div>';
+  }
+?>
   <div class="card p-2">
     <div class="card-head">
       <div class="searchForm p-2">

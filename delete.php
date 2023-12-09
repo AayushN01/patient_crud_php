@@ -9,7 +9,7 @@
 
         if($result)
         {
-            Header('Location: index.php');
+            Header('Location: index.php?delete_success=1');
             exit();
         }
     }

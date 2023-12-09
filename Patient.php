@@ -36,7 +36,7 @@
         
                     if($result)
                     {   
-                        header('Location: index.php');
+                        header('Location: index.php?success=1');
                         exit();
                     }
                 }catch(Exception $e){
@@ -79,7 +79,7 @@
             
                         if($result)
                         {   
-                            header('Location: index.php');
+                            header('Location: index.php?update_success=1');
                             exit();
                         }
                     }catch(Exception $e){
