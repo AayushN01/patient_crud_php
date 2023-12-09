@@ -81,7 +81,7 @@ include('includes/template.php');
                             </div>
 
                             <div class="col-12">
-                                <button class="btn btn-primary" type="submit">Add Record</button>
+                                <button class="btn btn-primary" type="submit" name="store">Add Record</button>
                             </div>
                         </form>
                     </div>

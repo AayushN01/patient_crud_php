@@ -1,5 +1,5 @@
 <?php
-include('db.php');
+include('Patient.php');
 include('includes/template.php');
 
 ?>
@@ -67,32 +67,34 @@ include('includes/template.php');
                 </tr>
               </thead>
               <tbody>
-                <?php
-
-                $query = "SELECT * FROM patients ORDER BY created_at DESC";
-                $result = mysqli_query($connection, $query);
-                if (mysqli_num_rows($result) > 0) {
-                  $patients = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-                  foreach ($patients as $key => $patient) { ?>
-                    <tr>
-                      <th><?php echo ++$key; ?></th>
-                      <td><?php echo $patient['first_name'] . ' ' . $patient['middle_name'] . ' ' . $patient['last_name']; ?></td>
-                      <td><?php echo $patient['email'] ?></td>
-                      <td><?php echo $patient['gender'] ?></td>
-                      <td><?php echo $patient['contact_no'] ?></td>
-                      <td><?php echo $patient['appointment_datetime'] ?></td>
-                      <td>
-                        <a href="show.php?id=<?php echo $patient['id']; ?>" class="btn btn-primary btn-sm" title="View Details"><i class="fa fa-eye"></i></a>
-                        <a href="edit.php?id=<?php echo $patient['id']; ?>" class="btn btn-warning btn-sm" title="Edit Details"><i class="fa fa-pen"></i></a>
-                        <a href="delete.php?id=<?php echo $patient['id']; ?>" class="btn btn-danger btn-sm" title="Delete"><i class="fa fa-trash"></i></a>
-                      </td>
-                    </tr>
-                <?php }
-                }
-                ?>
-
+              <?php 
+              $patients = new Patient();
+              $patients = $patients->getAllRecords();
+              if(isset($patients) && is_array($patients) && count($patients) > 0)
+              {
+                foreach($patients as $key =>$patient){ 
+                  ?>
+                 <tr>
+                  <td><?php echo ++$key ?></td>
+                  <td><?php echo $patient['first_name'] . ' ' . $patient['middle_name'] . ' ' . $patient['last_name']; ?></td>
+                  <td><?php echo $patient['email']; ?></td>
+                  <td><?php echo $patient['gender']; ?></td>
+                  <td><?php echo $patient['contact_no']; ?></td>
+                  <td><?php echo $patient['appointment_datetime']; ?></td>
+                  <td>
+                    <a href="show.php?id=<?php echo $patient['id'] ?>" class="btn btn-success btn-sm">View Detail</a>
+                    <a href="edit.php?id=<?php echo $patient['id'] ?>" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="delete.php?id=<?php echo $patient['id'] ?>" class="btn btn-danger btn-sm">Delete</a>
+                  </td>
+                 </tr>
+          <?php }
+              }else{ ?>
+                <tr>
+                  <td colspan="6">No Records Found</td>
+                </tr>
+             <?php  } ?>
               </tbody>
+
             </table>
           </div>
         </div>

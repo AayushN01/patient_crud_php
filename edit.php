@@ -98,7 +98,7 @@
                                 <textarea name="medical_history" id="validationCustom01" class="form-control"><?php echo $patient['medical_history'] ?? '' ?></textarea>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary" type="submit">Update Record</button>
+                                <button class="btn btn-primary" type="submit" name="update">Update Record</button>
                             </div>
                         </form>
                     </div>
