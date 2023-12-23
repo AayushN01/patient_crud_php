@@ -52,6 +52,29 @@
             $result = $result->fetch_all(MYSQLI_ASSOC);
             return $result;
         }
+        
+        public function getRecordById(){
+            if($_GET['id']){
+                $patientId = $_GET['id'];
+                if($patientId){
+                    try{
+                        $query = "SELECT * FROM patients WHERE id=$patientId";
+                        $result = mysqli_query($this->connection,$query);
+                        if($result){
+                          $patientData = mysqli_fetch_assoc($result);
+                          return $patientData;
+                        }else{
+                            $_SESSION['error'] = "Error: " . mysqli_error($this->connection);
+                            return null;
+                        }
+                    }catch(Exception $e){
+                        $_SESSION['error'] = "Error: " . mysqli_error($this->connection);
+                       
+                    }
+                }
+  
+            }
+        }
 
         public function update($request)
         {
@@ -84,6 +107,7 @@
                         }
                     }catch(Exception $e){
                         $_SESSION['error'] = "Error: " . mysqli_error($this->connection);
+       
                     }
             }
         }

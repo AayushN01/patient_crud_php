@@ -27,40 +27,7 @@ include('includes/template.php');
   }
 ?>
   <div class="card p-2">
-    <div class="card-head">
-      <div class="searchForm p-2">
-        <form action="search-result.php">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="form-group">
-                <input type="text" class="form-control" name="name" placeholder="Search By Name">
-              </div>
-            </div>
-            <!-- <div class="col-md-3">
-              <div class="form-group">
-                <input type="date" class="form-control" name="date" placeholder="Search By Date">
-              </div>
-            </div> -->
-            <!-- <div class="col-md-3">
-              <div class="form-group">
-                <select name="gender" class="form-control" id="gender" aria-placeholder="Search By Gender">
-                  <option selected disapled>Search By Gender</option>
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                  <option value="Other">Other</option>
-                </select>
-              </div>
-            </div> -->
-            <div class="col-md-2">
-              <div class="form-group">
-                <button type="submit" class="form-control btn btn-primary"><i class="fa fa-search"></i></button>
-              </div>
-            </div>
-          </div>
-      </div>
 
-      </form>
-    </div>
     <div class="card-body">
       <div class="row">
         <div class="col-md-12">

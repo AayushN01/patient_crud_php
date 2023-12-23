@@ -1,25 +1,22 @@
 <?php 
   include ('includes/template.php');
-  include('db.php');
+  include('Patient.php');
 
+  $patient = new Patient();
+  
   if(isset($_GET['id']))
   {
     $patientId = $_GET['id'];
-    $query = "SELECT * FROM patients WHERE id=$patientId";
-    $result = mysqli_query($connection,$query);
-    if($result)
-    {
-        $patient = mysqli_fetch_assoc($result);
-        if(isset($patient['middle_name']) && $patient['middle_name'] !== ''){
-            $short_middle = strtoupper(substr($patient['middle_name'], 0, 1)) . '.';
-        }else{
-            $short_middle = '';
-        }
-       
-    }
-  }
-?>
-    <section class="p-5">
+    $patient = $patient->getRecordById($patientId);
+    if ($patient !== null) { 
+      if(isset($patient['middle_name']) && $patient['middle_name'] !== ''){
+          $short_middle = strtoupper(substr($patient['middle_name'], 0, 1)) . '.';
+      }else{
+        $short_middle = ''; 
+      }
+    ?>
+
+<section class="p-5">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
@@ -83,3 +80,11 @@
         </div>
       </div>
     </section>
+
+    <?php } else {
+        echo "Patient not found.";
+    }
+
+  }
+?>
+
